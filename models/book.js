@@ -3,17 +3,10 @@ let Schema = mongoose.Schema;
 
 // create a schema
 let bookSchema = new Schema({
+    
     title: {
         type: String,
         required: true
-    },
-    page:{
-        type: Number,
-        required: true
-    },
-    autohorId:{
-        required: true,
-        ref: a
     }
 });
 
