@@ -1,26 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var Book = require("../models/book");
+let express = require('express');
+let router = express.Router();
+let app = express();
+let bookRoute = require('./book');
+let usersRoute = require('./users');
 
 /* GET home page. */
-
-router.get('/', async function(req, res, next) {
-  let book = await Book.create({title:"bobo"});
-  return res.status(200).json({
-    message : "success !",
-    book
-  });
+router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/', async function(req, res, next) {
-  
-  let title= req.body.title, book = await Book.create({title});
-  return res.status(200).json({
-    message : "success !",
-    book
-  });
-  res.render('index', { title: 'Express' });
-});
+app.use(router);
+app.use('/book',bookRoute);
+app.use('/user',usersRoute);
 
-module.exports = router;
+module.exports = app;

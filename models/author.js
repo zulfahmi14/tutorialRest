@@ -2,20 +2,20 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 // create a schema
-let bookSchema = new Schema({
+let authorSchema = new Schema({
     
-    title: {
+    name : {
         type: String,
         required: true
     },
-    page : {
-        type : Number,
+    address : {
+        type : String,
         required: true
     }
 });
 
 // create a model
-let Book = mongoose.model('books', bookSchema);
+let Author = mongoose.model('authors', authorSchema);
 
 // export the model
-module.exports = Book;
+module.exports = Author;
